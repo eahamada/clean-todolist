@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<name>todo-list</name>
-	<groupId>todolist</groupId>
-	<artifactId>todo-list</artifactId>
+	<name>clean-securite</name>
+	<groupId>fr.rsi.securite</groupId>
+	<artifactId>clean-securite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -33,32 +33,41 @@
 		<wsdl4j.version>1.4</wsdl4j.version>
 		<hibernate-jpa-2.1-api.version>1.0.0.Final</hibernate-jpa-2.1-api.version>
 		<validation-api.version>1.1.0.Final</validation-api.version>
+		<cucumber.version>1.2.4</cucumber.version>
 	</properties>
 
-	<modules>
-		<module>todo-list-domain</module>
-		<module>todo-list-usecases</module>
-	</modules>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>info.cukes</groupId>
+				<artifactId>cucumber-java</artifactId>
+				<version>${cucumber.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>info.cukes</groupId>
+				<artifactId>cucumber-junit</artifactId>
+				<version>${cucumber.version}</version>
+				<scope>test</scope>
+			</dependency>
 			<dependency>
 				<groupId>javax.validation</groupId>
 				<artifactId>validation-api</artifactId>
 				<version>${validation-api.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>todolist</groupId>
-				<artifactId>todo-list-domain</artifactId>
+				<groupId>fr.rsi.securite</groupId>
+				<artifactId>clean-securite-domain</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>todolist</groupId>
-				<artifactId>todo-list-usecases</artifactId>
+				<groupId>fr.rsi.securite</groupId>
+				<artifactId>clean-securite-usecases</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>todolist</groupId>
-				<artifactId>todo-list-interfaces</artifactId>
+				<groupId>fr.rsi.securite</groupId>
+				<artifactId>clean-securite-interfaces</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -72,11 +81,6 @@
 				<version>${spring-framework.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.jboss.resteasy</groupId>
-				<artifactId>resteasy-spring</artifactId>
-				<version>${resteasy.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.ws.rs</groupId>
@@ -199,5 +203,11 @@
 		</pluginManagement>
 	</build>
 
+	<modules>
+		<module>clean-securite-domain</module>
+		<module>clean-securite-usecases</module>
+		<module>clean-securite-interfaces</module>
+		<module>clean-securite-infrastructure</module>
+	</modules>
 </project>
 
